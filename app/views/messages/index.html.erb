@@ -1,0 +1,12 @@
+<h1>Messages</h1>
+
+<div data-controller='message'>
+  <div data-target='message.messages'>
+    <%= render @messages %>
+  </div>
+
+  <%= form_with(model: Message.new, data: { action: 'ajax:success->message#clearInput' }) do |form| %>
+    <%= form.text_area :content, data: { target: 'message.input' } %>
+    <%= form.submit style: 'display: block' %>
+  <% end %>
+</div>
